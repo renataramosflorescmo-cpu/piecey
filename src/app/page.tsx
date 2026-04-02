@@ -132,51 +132,48 @@ export default async function HomePage() {
       <Header />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative overflow-hidden bg-navy text-white">
-          <div className="absolute inset-0 bg-gradient-to-br from-electric/10 via-transparent to-purple/10" />
-          <div className="relative mx-auto max-w-7xl px-4 py-20 sm:py-28">
-            <div className="grid items-center gap-12 lg:grid-cols-2">
-              {/* Texto esquerda */}
-              <div>
-                <p className="mb-4 inline-block rounded-full bg-mint/10 px-4 py-1.5 text-sm font-medium text-mint">
-                  Plataforma de Tecnologia e Marketing
-                </p>
-                <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-                  Cada Peça no
-                  <span className="block text-electric"> Lugar Certo.</span>
-                </h1>
-                <p className="mt-6 max-w-lg text-base text-white/70">
-                  Foque no que você faz de melhor. A PIECEY cuida do resto.
-                  Agendamento inteligente, captação de pacientes e crescimento
-                  previsível para o seu negócio.
-                </p>
-                <div className="mt-10 flex flex-wrap gap-4">
-                  <Link href="/contact">
-                    <Button size="lg" className="bg-electric text-white hover:bg-electric/90">
-                      Agende uma demonstração
-                      <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </Link>
-                  <Link href="/services">
-                    <Button
-                      size="lg"
-                      className="!bg-[#00C9A7] text-navy font-semibold hover:!bg-[#00C9A7]/90"
-                    >
-                      Conheça as soluções
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              {/* Imagem direita */}
-              <div className="flex justify-center lg:justify-end">
-                <Image
-                  src="/hero-image.png"
-                  alt="Profissional de saúde usando PIECEY"
-                  width={600}
-                  height={335}
-                  className="rounded-2xl object-cover"
-                  priority
-                />
+        <section className="relative min-h-[600px] overflow-hidden bg-navy text-white">
+          {/* Imagem de fundo */}
+          <div className="absolute inset-0">
+            <Image
+              src="/hero-image.png"
+              alt="Profissional de saúde usando PIECEY"
+              fill
+              className="object-cover object-right opacity-30 lg:opacity-40"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/40" />
+          </div>
+          {/* Conteúdo */}
+          <div className="relative mx-auto max-w-7xl px-4 py-24 sm:py-32">
+            <div className="max-w-2xl">
+              <p className="mb-4 inline-block rounded-full bg-mint/10 px-4 py-1.5 text-sm font-medium text-mint">
+                Plataforma de Tecnologia e Marketing
+              </p>
+              <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                Cada Peça no
+                <span className="block text-electric"> Lugar Certo.</span>
+              </h1>
+              <p className="mt-6 max-w-lg text-base text-white/70">
+                Foque no que você faz de melhor. A PIECEY cuida do resto.
+                Agendamento inteligente, captação de pacientes e crescimento
+                previsível para o seu negócio.
+              </p>
+              <div className="mt-10 flex flex-wrap gap-4">
+                <Link href="/contact">
+                  <Button size="lg" className="bg-electric text-white hover:bg-electric/90">
+                    Agende uma demonstração
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+                <Link href="/services">
+                  <Button
+                    size="lg"
+                    className="!bg-[#00C9A7] text-navy font-semibold hover:!bg-[#00C9A7]/90"
+                  >
+                    Conheça as soluções
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
