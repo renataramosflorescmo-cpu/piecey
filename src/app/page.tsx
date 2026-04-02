@@ -265,7 +265,7 @@ export default async function HomePage() {
             <h2 className="font-heading text-3xl font-bold text-navy">
               Resultados que falam por si
             </h2>
-            <div className="mt-12 grid gap-6 md:grid-cols-3">
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 md:grid-cols-4">
               <div className="rounded-xl bg-white p-6 shadow-sm">
                 <CheckCircle2 className="mx-auto h-8 w-8 text-mint" />
                 <p className="mt-4 font-heading text-2xl font-bold text-navy">Agenda cheia</p>
@@ -280,6 +280,11 @@ export default async function HomePage() {
                 <CheckCircle2 className="mx-auto h-8 w-8 text-mint" />
                 <p className="mt-4 font-heading text-2xl font-bold text-navy">Zero complicação</p>
                 <p className="mt-1 text-sm text-navy/50">Sem virar gerente de TI</p>
+              </div>
+              <div className="rounded-xl bg-white p-6 shadow-sm">
+                <CheckCircle2 className="mx-auto h-8 w-8 text-mint" />
+                <p className="mt-4 font-heading text-2xl font-bold text-navy">Melhores práticas</p>
+                <p className="mt-1 text-sm text-navy/50">Profissionais especializados, uso de IA e otimizações frequentes</p>
               </div>
             </div>
           </div>
