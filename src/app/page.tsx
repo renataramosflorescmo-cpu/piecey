@@ -21,6 +21,7 @@ import {
   Zap,
   Shield,
   Users,
+  HardHat,
 } from "lucide-react";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -32,6 +33,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const products = [
+  {
+    icon: HardHat,
+    name: "PIECEY Setup",
+    description: "Sua adequação com as melhores práticas de apresentação.",
+    color: "bg-purple/10 text-purple",
+  },
   {
     icon: Calendar,
     name: "PIECEY Agenda",
@@ -191,7 +198,7 @@ export default async function HomePage() {
                 Nossas soluções
               </h2>
               <p className="mt-3 text-navy/60">
-                Quatro peças que se encaixam perfeitamente no seu negócio.
+                Peças que se encaixam perfeitamente no seu negócio.
               </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-2">
