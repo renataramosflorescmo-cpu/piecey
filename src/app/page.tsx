@@ -139,10 +139,10 @@ export default async function HomePage() {
               src="/hero-image.png"
               alt="Profissional de saúde usando PIECEY"
               fill
-              className="object-cover object-right-top opacity-30 lg:opacity-40"
+              className="object-contain object-right opacity-40 lg:opacity-50"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/40" />
+            <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/90 to-navy/20" />
           </div>
           {/* Conteúdo */}
           <div className="relative mx-auto max-w-7xl px-4 py-24 sm:py-32">
