@@ -139,7 +139,7 @@ export default async function HomePage() {
               src="/hero-image.png"
               alt="Profissional de saúde usando PIECEY"
               fill
-              className="object-cover object-right opacity-30 lg:opacity-40"
+              className="object-cover object-right-top opacity-30 lg:opacity-40"
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/95 to-navy/40" />
