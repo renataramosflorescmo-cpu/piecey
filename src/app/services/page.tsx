@@ -2,55 +2,109 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { JsonLd } from "@/components/seo/json-ld";
-import { getPageSeoServer } from "@/lib/queries/server/pages";
 import { SITE_URL } from "@/lib/constants";
-import { Zap, Shield, BarChart3, Code, Globe, Headphones } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Calendar,
+  Megaphone,
+  Heart,
+  BarChart3,
+  ArrowRight,
+  Settings,
+  Monitor,
+  TrendingUp,
+} from "lucide-react";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const seo = await getPageSeoServer("services");
   return {
-    title: seo?.title || "Nossos Serviços",
-    description: seo?.description || "Descubra como podemos ajudar o seu negócio a crescer.",
+    title: "Soluções",
+    description:
+      "Conheça os produtos PIECEY: Agenda inteligente, Marketing para captação, Retenção de pacientes e Insights de negócio.",
     alternates: { canonical: `${SITE_URL}/services` },
   };
 }
 
-const services = [
+const products = [
   {
-    icon: Code,
-    title: "Desenvolvimento de Software",
-    description:
-      "Criamos soluções sob medida com as tecnologias mais modernas do mercado. Sites, apps e sistemas empresariais.",
+    icon: Calendar,
+    name: "PIECEY Agenda",
+    focus: "Agendamento inteligente",
+    promise: "Sua peça de agendamento que confirma sozinha",
+    features: [
+      "Confirmação automática via WhatsApp",
+      "Redução de no-show em até 70%",
+      "Agenda online 24/7 para pacientes",
+      "Lembretes personalizados",
+    ],
+    color: "border-electric/30",
+    iconBg: "bg-electric/10 text-electric",
+  },
+  {
+    icon: Megaphone,
+    name: "PIECEY Marketing",
+    focus: "Captação de pacientes",
+    promise: "Sua peça de atração que traz novos clientes",
+    features: [
+      "Campanhas em conformidade com CFM/CFO/OAB",
+      "Presença digital otimizada",
+      "Mídia paga com ROI mensurável",
+      "Conteúdo estratégico para redes sociais",
+    ],
+    color: "border-purple/30",
+    iconBg: "bg-purple/10 text-purple",
+  },
+  {
+    icon: Heart,
+    name: "PIECEY Retenção",
+    focus: "Fidelização de carteira",
+    promise: "Sua peça de relacionamento que mantém pacientes voltando",
+    features: [
+      "CRM especializado em saúde",
+      "Automação de follow-up pós-consulta",
+      "Pesquisas de satisfação automáticas",
+      "Campanhas de reativação inteligentes",
+    ],
+    color: "border-mint/30",
+    iconBg: "bg-mint/10 text-mint",
   },
   {
     icon: BarChart3,
-    title: "Análise de Dados",
+    name: "PIECEY Insights",
+    focus: "Inteligência de negócio",
+    promise: "Sua peça de dados que mostra exatamente como crescer",
+    features: [
+      "Dashboard com métricas em tempo real",
+      "Relatórios de faturamento e crescimento",
+      "Análise de desempenho por canal",
+      "Previsibilidade financeira",
+    ],
+    color: "border-electric/30",
+    iconBg: "bg-electric/10 text-electric",
+  },
+];
+
+const methodology = [
+  {
+    icon: Settings,
+    step: "01",
+    name: "Setup de Estruturação",
     description:
-      "Transformamos seus dados em insights acionáveis com dashboards, relatórios e inteligência de negócios.",
+      "Montamos toda a infraestrutura digital do seu consultório: site, perfis, CRM e automações.",
   },
   {
-    icon: Shield,
-    title: "Segurança Digital",
+    icon: Monitor,
+    step: "02",
+    name: "SaaS de CRM",
     description:
-      "Protegemos sua empresa contra ameaças digitais com auditorias, monitoramento e boas práticas de segurança.",
+      "Você acessa a plataforma PIECEY para gerenciar agenda, pacientes e comunicação em um só lugar.",
   },
   {
-    icon: Globe,
-    title: "Marketing Digital",
+    icon: TrendingUp,
+    step: "03",
+    name: "Growth com Mídia Paga",
     description:
-      "Estratégias de SEO, mídia paga e conteúdo para aumentar sua presença online e atrair mais clientes.",
-  },
-  {
-    icon: Zap,
-    title: "Automação de Processos",
-    description:
-      "Automatizamos tarefas repetitivas para que sua equipe foque no que realmente importa.",
-  },
-  {
-    icon: Headphones,
-    title: "Consultoria & Suporte",
-    description:
-      "Acompanhamento contínuo com suporte técnico dedicado e consultoria estratégica personalizada.",
+      "Escalamos sua captação com campanhas otimizadas. Você só paga mais quando fatura mais.",
   },
 ];
 
@@ -60,54 +114,108 @@ export default async function ServicesPage() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Serviços", item: `${SITE_URL}/services` },
+      { "@type": "ListItem", position: 2, name: "Soluções", item: `${SITE_URL}/services` },
     ],
   };
-
-  const servicesLd = services.map((s) => ({
-    "@context": "https://schema.org",
-    "@type": "Service",
-    name: s.title,
-    description: s.description,
-  }));
 
   return (
     <>
       <JsonLd data={breadcrumbLd} />
-      {servicesLd.map((ld, i) => (
-        <JsonLd key={i} data={ld} />
-      ))}
       <Header />
       <main className="flex-1">
-        <section className="bg-gradient-to-br from-zinc-50 to-white px-4 py-20 dark:from-zinc-950 dark:to-zinc-900">
+        {/* Hero */}
+        <section className="bg-navy px-4 py-20 text-white">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">
-              Nossos Serviços
+            <h1 className="font-heading text-4xl font-bold">
+              Nossas Soluções
             </h1>
-            <p className="mt-4 text-lg text-zinc-500">
-              Soluções completas para impulsionar o seu negócio.
+            <p className="mt-4 text-lg text-white/60">
+              Quatro peças que se encaixam perfeitamente no seu negócio.
+              Chega de ferramentas fragmentadas.
             </p>
           </div>
         </section>
 
-        <section className="px-4 py-16">
-          <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((service) => (
+        {/* Products */}
+        <section className="px-4 py-20">
+          <div className="mx-auto max-w-5xl space-y-8">
+            {products.map((product) => (
               <article
-                key={service.title}
-                className="group rounded-xl border border-zinc-200 p-8 transition-all hover:border-blue-200 hover:shadow-lg dark:border-zinc-800 dark:hover:border-blue-900"
+                key={product.name}
+                className={`rounded-2xl border-2 ${product.color} bg-white p-8 transition-shadow hover:shadow-lg`}
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 transition-colors group-hover:bg-blue-100 dark:bg-blue-950">
-                  <service.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                <div className="flex flex-col gap-6 md:flex-row md:items-start">
+                  <div className={`flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl ${product.iconBg}`}>
+                    <product.icon className="h-7 w-7" />
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-navy/40 uppercase tracking-wider">
+                      {product.focus}
+                    </p>
+                    <h2 className="mt-1 font-heading text-2xl font-bold text-navy">
+                      {product.name}
+                    </h2>
+                    <p className="mt-2 text-navy/60">{product.promise}</p>
+                    <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                      {product.features.map((feature) => (
+                        <li key={feature} className="flex items-start gap-2 text-sm text-navy/70">
+                          <span className="mt-1 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-mint" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-                <h2 className="mt-5 text-lg font-semibold text-zinc-900 dark:text-zinc-100">
-                  {service.title}
-                </h2>
-                <p className="mt-2 text-sm leading-relaxed text-zinc-500">
-                  {service.description}
-                </p>
               </article>
             ))}
+          </div>
+        </section>
+
+        {/* Methodology */}
+        <section className="bg-gray-light px-4 py-20">
+          <div className="mx-auto max-w-5xl">
+            <div className="text-center">
+              <h2 className="font-heading text-3xl font-bold text-navy">
+                Nossa Metodologia
+              </h2>
+              <p className="mt-3 text-navy/60">
+                Três etapas para transformar seu consultório.
+              </p>
+            </div>
+            <div className="mt-12 grid gap-8 md:grid-cols-3">
+              {methodology.map((step) => (
+                <div key={step.step} className="text-center">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-electric/10">
+                    <step.icon className="h-7 w-7 text-electric" />
+                  </div>
+                  <p className="mt-4 font-heading text-sm font-bold text-purple">
+                    Etapa {step.step}
+                  </p>
+                  <h3 className="mt-1 font-heading text-lg font-semibold text-navy">
+                    {step.name}
+                  </h3>
+                  <p className="mt-2 text-sm text-navy/60">{step.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="relative overflow-hidden bg-gradient-to-r from-electric to-purple px-4 py-20 text-white">
+          <div className="mx-auto max-w-3xl text-center">
+            <h2 className="font-heading text-3xl font-bold">
+              Foque no que você faz de melhor
+            </h2>
+            <p className="mt-4 text-white/80">
+              A PIECEY cuida do resto. Agende uma demonstração gratuita.
+            </p>
+            <Link href="/contact" className="mt-8 inline-block">
+              <Button size="lg" className="bg-white text-navy hover:bg-white/90">
+                Fale com um especialista
+                <ArrowRight className="h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </section>
       </main>

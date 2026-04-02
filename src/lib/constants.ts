@@ -4,7 +4,7 @@ export const SITE_URL =
 export const NAV_ITEMS = [
   { label: "Home", href: "/" },
   { label: "Sobre", href: "/about" },
-  { label: "Serviços", href: "/services" },
+  { label: "Soluções", href: "/services" },
   { label: "Blog", href: "/blog" },
   { label: "Contato", href: "/contact" },
 ] as const;
@@ -20,6 +20,7 @@ export const ADMIN_NAV_ITEMS = [
 
 export const DEFAULT_SEO = {
   title: "PIECEY",
-  description: "Soluções profissionais para o seu negócio.",
+  description:
+    "Plataforma de Tecnologia e Marketing para profissionais da saúde. Cada Peça no Lugar Certo.",
   ogImage: "/og-default.jpg",
 };

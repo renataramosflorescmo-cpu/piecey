@@ -3,21 +3,24 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0D0D2B;
+  --navy: #0D0D2B;
+  --electric-blue: #1A1AFF;
+  --purple: #8A2BE2;
+  --mint: #00C9A7;
+  --gray-light: #F4F4F8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-navy: #0D0D2B;
+  --color-electric: #1A1AFF;
+  --color-purple: #8A2BE2;
+  --color-mint: #00C9A7;
+  --color-gray-light: #F4F4F8;
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-poppins);
 }
 
 body {
@@ -25,29 +28,26 @@ body {
   color: var(--foreground);
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Better focus styles */
 *:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--electric-blue);
   outline-offset: 2px;
 }
 
-/* Selection color */
 ::selection {
-  background-color: #3b82f6;
+  background-color: #1A1AFF;
   color: white;
 }
 
-/* Prose improvements for blog articles */
 .prose img {
   border-radius: 0.75rem;
 }
 
 .prose a {
+  color: #1A1AFF;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
 }
@@ -56,11 +56,6 @@ html {
   border-radius: 0.75rem;
 }
 
-/* Hide scrollbar but keep functionality */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.font-heading {
+  font-family: var(--font-poppins), sans-serif;
 }

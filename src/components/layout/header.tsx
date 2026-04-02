@@ -12,10 +12,10 @@ export function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur-md dark:border-zinc-800 dark:bg-zinc-950/80">
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-navy/95 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
-          PIECEY
+        <Link href="/" className="font-heading text-xl font-bold tracking-tight text-white">
+          PIECE<span className="text-purple">Y</span>
         </Link>
 
         {/* Desktop nav */}
@@ -27,18 +27,24 @@ export function Header() {
               className={cn(
                 "rounded-lg px-3 py-2 text-sm font-medium transition-colors",
                 pathname === item.href
-                  ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100"
-                  : "text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900 dark:text-zinc-400 dark:hover:bg-zinc-800/50 dark:hover:text-zinc-100"
+                  ? "bg-white/10 text-mint"
+                  : "text-white/70 hover:bg-white/5 hover:text-white"
               )}
             >
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            className="ml-3 rounded-lg bg-electric px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-electric/90"
+          >
+            Agende uma demo
+          </Link>
         </nav>
 
         {/* Mobile toggle */}
         <button
-          className="rounded-lg p-2 text-zinc-600 hover:bg-zinc-100 md:hidden dark:text-zinc-400 dark:hover:bg-zinc-800"
+          className="rounded-lg p-2 text-white/70 hover:bg-white/10 md:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? "Fechar menu" : "Abrir menu"}
         >
@@ -48,7 +54,7 @@ export function Header() {
 
       {/* Mobile nav */}
       {mobileOpen && (
-        <nav className="border-t border-zinc-200 bg-white px-4 py-3 md:hidden dark:border-zinc-800 dark:bg-zinc-950">
+        <nav className="border-t border-white/10 bg-navy px-4 py-3 md:hidden">
           {NAV_ITEMS.map((item) => (
             <Link
               key={item.href}
@@ -57,13 +63,20 @@ export function Header() {
               className={cn(
                 "block rounded-lg px-3 py-2 text-sm font-medium",
                 pathname === item.href
-                  ? "bg-zinc-100 text-zinc-900 dark:bg-zinc-800 dark:text-zinc-100"
-                  : "text-zinc-600 hover:bg-zinc-50 dark:text-zinc-400 dark:hover:bg-zinc-800"
+                  ? "bg-white/10 text-mint"
+                  : "text-white/70 hover:bg-white/5 hover:text-white"
               )}
             >
               {item.label}
             </Link>
           ))}
+          <Link
+            href="/contact"
+            onClick={() => setMobileOpen(false)}
+            className="mt-2 block rounded-lg bg-electric px-3 py-2 text-center text-sm font-medium text-white"
+          >
+            Agende uma demo
+          </Link>
         </nav>
       )}
     </header>

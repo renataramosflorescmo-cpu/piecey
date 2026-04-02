@@ -5,22 +5,25 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-zinc-950">
+    <footer className="border-t border-white/10 bg-navy text-white">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <p className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
-              PIECEY
+            <p className="font-heading text-xl font-bold">
+              PIECE<span className="text-purple">Y</span>
             </p>
-            <p className="mt-2 text-sm text-zinc-500">
-              Soluções profissionais para o seu negócio.
+            <p className="mt-2 text-sm text-white/60">
+              Plataforma de Tecnologia e Marketing para profissionais da saúde.
+            </p>
+            <p className="mt-1 text-sm font-medium text-mint">
+              Cada Peça no Lugar Certo.
             </p>
           </div>
 
           {/* Navigation */}
           <div>
-            <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            <p className="text-sm font-semibold text-white">
               Navegação
             </p>
             <ul className="mt-3 space-y-2">
@@ -28,7 +31,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+                    className="text-sm text-white/50 transition-colors hover:text-mint"
                   >
                     {item.label}
                   </Link>
@@ -39,17 +42,17 @@ export function Footer() {
 
           {/* Contact */}
           <div>
-            <p className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">
+            <p className="text-sm font-semibold text-white">
               Contato
             </p>
-            <div className="mt-3 space-y-2 text-sm text-zinc-500">
-              <p>contato@piecey.com</p>
-              <p>(11) 99999-9999</p>
+            <div className="mt-3 space-y-2 text-sm text-white/50">
+              <p>contato@piecey.com.br</p>
+              <p>www.piecey.com.br</p>
             </div>
           </div>
         </div>
 
-        <div className="mt-8 border-t border-zinc-200 pt-6 text-center text-sm text-zinc-400 dark:border-zinc-800">
+        <div className="mt-8 border-t border-white/10 pt-6 text-center text-sm text-white/30">
           &copy; {year} PIECEY. Todos os direitos reservados.
         </div>
       </div>

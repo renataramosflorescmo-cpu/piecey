@@ -51,13 +51,13 @@ export default async function ContactPage() {
       <JsonLd data={localBusinessLd} />
       <Header />
       <main className="flex-1">
-        <section className="bg-gradient-to-br from-zinc-50 to-white px-4 py-20 dark:from-zinc-950 dark:to-zinc-900">
+        <section className="bg-navy px-4 py-20 text-white">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">
+            <h1 className="font-heading text-4xl font-bold">
               Contato
             </h1>
-            <p className="mt-4 text-lg text-zinc-500">
-              Entre em contato conosco. Estamos prontos para ajudar.
+            <p className="mt-4 text-lg text-white/60">
+              Fale com a gente. Estamos prontos para ajudar seu negócio a crescer.
             </p>
           </div>
         </section>
@@ -66,41 +66,35 @@ export default async function ContactPage() {
           <div className="mx-auto grid max-w-5xl gap-12 lg:grid-cols-2">
             {/* Contact info */}
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+              <h2 className="font-heading text-2xl font-bold text-navy">
                 Informações
               </h2>
               <div className="space-y-4">
                 <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-blue-50 p-3 dark:bg-blue-950">
-                    <Mail className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                  <div className="rounded-lg bg-electric/10 p-3">
+                    <Mail className="h-5 w-5 text-electric" />
                   </div>
                   <div>
-                    <p className="font-medium text-zinc-900 dark:text-zinc-100">
-                      Email
-                    </p>
-                    <p className="text-sm text-zinc-500">{contactEmail}</p>
+                    <p className="font-medium text-navy">Email</p>
+                    <p className="text-sm text-navy/60">{contactEmail}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-blue-50 p-3 dark:bg-blue-950">
-                    <Phone className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                  <div className="rounded-lg bg-electric/10 p-3">
+                    <Phone className="h-5 w-5 text-electric" />
                   </div>
                   <div>
-                    <p className="font-medium text-zinc-900 dark:text-zinc-100">
-                      Telefone
-                    </p>
-                    <p className="text-sm text-zinc-500">{contactPhone}</p>
+                    <p className="font-medium text-navy">Telefone</p>
+                    <p className="text-sm text-navy/60">{contactPhone}</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
-                  <div className="rounded-lg bg-blue-50 p-3 dark:bg-blue-950">
-                    <MapPin className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+                  <div className="rounded-lg bg-electric/10 p-3">
+                    <MapPin className="h-5 w-5 text-electric" />
                   </div>
                   <div>
-                    <p className="font-medium text-zinc-900 dark:text-zinc-100">
-                      Endereço
-                    </p>
-                    <p className="text-sm text-zinc-500">{contactAddress}</p>
+                    <p className="font-medium text-navy">Endereço</p>
+                    <p className="text-sm text-navy/60">{contactAddress}</p>
                   </div>
                 </div>
               </div>
