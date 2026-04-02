@@ -1,4 +1,3 @@
-import { createClient } from "@/lib/supabase/server";
 import { createStaticClient } from "@/lib/supabase/static";
 import type { Database } from "@/types/database";
 
@@ -6,7 +5,7 @@ type Article = Database["public"]["Tables"]["articles"]["Row"];
 
 export async function listPublishedArticlesServer() {
   try {
-    const supabase = await createClient();
+    const supabase = createStaticClient();
     const { data, error } = await supabase
       .from("articles")
       .select("id, title, slug, excerpt, featured_image, author_name, published_at")
@@ -26,7 +25,7 @@ export async function listPublishedArticlesServer() {
 
 export async function getArticleBySlugServer(slug: string) {
   try {
-    const supabase = await createClient();
+    const supabase = createStaticClient();
     const { data, error } = await supabase
       .from("articles")
       .select("*")

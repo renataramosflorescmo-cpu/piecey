@@ -14,6 +14,8 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export const dynamicParams = true;
+
 export async function generateStaticParams() {
   const slugs = await listPublishedSlugsServer();
   return slugs.map((s) => ({ slug: s.slug }));
