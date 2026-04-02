@@ -147,8 +147,7 @@ export default async function HomePage() {
               <Link href="/services">
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="border-white/20 text-white hover:bg-white/10"
+                  className="!bg-[#00C9A7] text-navy font-semibold hover:!bg-[#00C9A7]/90"
                 >
                   Conheça as soluções
                 </Button>
