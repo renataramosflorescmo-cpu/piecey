@@ -291,10 +291,10 @@ export default async function HomePage() {
                   </Button>
                 </Link>
               </div>
-              <div className="hidden lg:flex lg:justify-center">
+              <div className="flex justify-center">
                 <Image
                   src="/mockup-app.png"
-                  alt="PIECEY App - Plataforma para profissionais da saúde"
+                  alt="PIECEY App - Plataforma de Tecnologia e Marketing"
                   width={350}
                   height={700}
                   className="drop-shadow-2xl"
