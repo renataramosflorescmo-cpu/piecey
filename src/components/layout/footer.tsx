@@ -28,10 +28,7 @@ export function Footer() {
               height={40}
               className="h-8 w-auto brightness-0 invert"
             />
-            <p className="mt-2 text-sm text-white/60">
-              Plataforma de Tecnologia e Marketing para profissionais da saúde.
-            </p>
-            <p className="mt-1 text-sm font-medium text-mint">
+            <p className="mt-2 text-sm font-medium text-mint">
               Cada Peça no Lugar Certo.
             </p>
           </div>
@@ -65,13 +62,13 @@ export function Footer() {
               <p>www.piecey.com.br</p>
             </div>
             <a
-              href="https://instagram.com/pieceyoficial"
+              href="https://www.instagram.com/pieceyoficial"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-4 inline-flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-mint"
+              aria-label="Instagram PIECEY"
+              className="mt-4 inline-flex text-white/50 transition-colors hover:text-mint"
             >
-              <InstagramIcon className="h-4 w-4" />
-              @pieceyoficial
+              <InstagramIcon className="h-5 w-5" />
             </a>
           </div>
         </div>
