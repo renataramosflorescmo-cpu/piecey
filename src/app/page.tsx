@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { getAllSettingsServer } from "@/lib/queries/server/settings";
 import { SITE_URL } from "@/lib/constants";
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import {
   ArrowRight,
@@ -277,20 +278,33 @@ export default async function HomePage() {
 
         {/* CTA */}
         <section className="relative overflow-hidden bg-gradient-to-r from-electric to-purple px-4 py-20 text-white">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="font-heading text-3xl font-bold">
-              Pronto para colocar cada peça no lugar certo?
-            </h2>
-            <p className="mt-4 text-white/80">
-              Agende uma demonstração gratuita e descubra como a PIECEY pode
-              transformar o seu consultório.
-            </p>
-            <Link href="/contact" className="mt-8 inline-block">
-              <Button size="lg" className="bg-white text-navy hover:bg-white/90">
-                Fale com um especialista
-                <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
+          <div className="mx-auto max-w-7xl">
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <div>
+                <h2 className="font-heading text-3xl font-bold sm:text-4xl">
+                  Pronto para colocar cada peça no lugar certo?
+                </h2>
+                <p className="mt-4 text-lg text-white/80">
+                  Agende uma demonstração gratuita e descubra como a PIECEY pode
+                  transformar o seu consultório.
+                </p>
+                <Link href="/contact" className="mt-8 inline-block">
+                  <Button size="lg" className="bg-white text-navy hover:bg-white/90">
+                    Fale com um especialista
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
+                </Link>
+              </div>
+              <div className="hidden lg:flex lg:justify-center">
+                <Image
+                  src="/mockup-app.png"
+                  alt="PIECEY App - Plataforma para profissionais da saúde"
+                  width={350}
+                  height={700}
+                  className="drop-shadow-2xl"
+                />
+              </div>
+            </div>
           </div>
         </section>
       </main>
