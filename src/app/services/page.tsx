@@ -17,6 +17,7 @@ import {
   Monitor,
   TrendingUp,
 } from "lucide-react";
+import { PuzzlePiece } from "@/components/ui/puzzle-piece";
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
@@ -41,6 +42,7 @@ const products = [
     ],
     color: "border-purple/30",
     iconBg: "bg-purple/10 text-purple",
+    puzzleColor: "purple" as const,
   },
   {
     icon: Calendar,
@@ -55,6 +57,7 @@ const products = [
     ],
     color: "border-electric/30",
     iconBg: "bg-electric/10 text-electric",
+    puzzleColor: "electric" as const,
   },
   {
     icon: Megaphone,
@@ -69,6 +72,7 @@ const products = [
     ],
     color: "border-purple/30",
     iconBg: "bg-purple/10 text-purple",
+    puzzleColor: "purple" as const,
   },
   {
     icon: Heart,
@@ -83,6 +87,7 @@ const products = [
     ],
     color: "border-mint/30",
     iconBg: "bg-mint/10 text-mint",
+    puzzleColor: "mint" as const,
   },
   {
     icon: BarChart3,
@@ -97,6 +102,7 @@ const products = [
     ],
     color: "border-electric/30",
     iconBg: "bg-electric/10 text-electric",
+    puzzleColor: "electric" as const,
   },
   {
     icon: Users,
@@ -111,6 +117,7 @@ const products = [
     ],
     color: "border-purple/30",
     iconBg: "bg-purple/10 text-purple",
+    puzzleColor: "purple" as const,
   },
 ];
 
@@ -171,11 +178,11 @@ export default async function ServicesPage() {
             {products.map((product) => (
               <article
                 key={product.name}
-                className={`rounded-2xl border-2 ${product.color} bg-white p-8 transition-shadow hover:shadow-lg`}
+                className={`rounded-2xl border-2 ${product.color} bg-white p-8 transition-all hover:shadow-xl hover:-translate-y-1`}
               >
                 <div className="flex flex-col gap-6 md:flex-row md:items-start">
-                  <div className={`flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl ${product.iconBg}`}>
-                    <product.icon className="h-7 w-7" />
+                  <div className="flex-shrink-0">
+                    <PuzzlePiece color={product.puzzleColor} className="h-20 w-20 md:h-24 md:w-24" />
                   </div>
                   <div className="flex-1">
                     <p className="text-sm font-medium text-navy/40 uppercase tracking-wider">
