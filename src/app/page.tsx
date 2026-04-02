@@ -289,7 +289,7 @@ export default async function HomePage() {
                   transformar o seu negócio.
                 </p>
                 <Link href="/contact" className="mt-8 inline-block">
-                  <Button size="lg" className="bg-white text-navy hover:bg-white/90">
+                  <Button size="lg" className="bg-mint text-navy hover:bg-mint/90">
                     Fale com um especialista
                     <ArrowRight className="h-4 w-4" />
                   </Button>
