@@ -96,31 +96,6 @@ export default async function AboutPage() {
               </p>
             </div>
 
-            <div>
-              <h2 className="font-heading text-2xl font-bold text-navy">
-                Nosso tom de voz
-              </h2>
-              <div className="mt-4 grid gap-4 sm:grid-cols-3">
-                <div className="rounded-xl border border-electric/20 bg-electric/5 p-5">
-                  <p className="font-heading font-semibold text-electric">Empático</p>
-                  <p className="mt-2 text-sm text-navy/60">
-                    Entendemos a sua dor. Você está sobrecarregado e nós sabemos disso.
-                  </p>
-                </div>
-                <div className="rounded-xl border border-purple/20 bg-purple/5 p-5">
-                  <p className="font-heading font-semibold text-purple">Descomplicado</p>
-                  <p className="mt-2 text-sm text-navy/60">
-                    Explicamos conceitos complexos de forma simples. Sem jargões.
-                  </p>
-                </div>
-                <div className="rounded-xl border border-mint/20 bg-mint/5 p-5">
-                  <p className="font-heading font-semibold text-mint">Focado em resultados</p>
-                  <p className="mt-2 text-sm text-navy/60">
-                    Não falamos de features, falamos de benefícios para o seu negócio.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
