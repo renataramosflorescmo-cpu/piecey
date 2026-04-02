@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
@@ -14,8 +15,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-navy/95 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="font-heading text-xl font-bold tracking-tight text-white">
-          PIECE<span className="text-purple">Y</span>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/logo.png"
+            alt="PIECEY"
+            width={120}
+            height={40}
+            className="h-8 w-auto brightness-0 invert"
+            priority
+          />
         </Link>
 
         {/* Desktop nav */}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants";
 
@@ -11,9 +12,13 @@ export function Footer() {
         <div className="grid gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <p className="font-heading text-xl font-bold">
-              PIECE<span className="text-purple">Y</span>
-            </p>
+            <Image
+              src="/logo.png"
+              alt="PIECEY"
+              width={120}
+              height={40}
+              className="h-8 w-auto brightness-0 invert"
+            />
             <p className="mt-2 text-sm text-white/60">
               Plataforma de Tecnologia e Marketing para profissionais da saúde.
             </p>
