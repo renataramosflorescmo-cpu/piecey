@@ -54,11 +54,6 @@ export default async function ArticlePage({ params }: Props) {
 
   if (!article) notFound();
 
-  const categories =
-    article.article_categories
-      ?.map((ac: { categories: { id: string; name: string; slug: string } | null }) => ac.categories)
-      .filter(Boolean) as { id: string; name: string; slug: string }[] ?? [];
-
   const articleLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -100,7 +95,6 @@ export default async function ArticlePage({ params }: Props) {
             contentHtml={article.content_html}
             authorName={article.author_name}
             publishedAt={article.published_at}
-            categories={categories}
           />
         </div>
       </main>

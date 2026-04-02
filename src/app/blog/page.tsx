@@ -52,12 +52,12 @@ export default async function BlogPage() {
       <JsonLd data={collectionLd} />
       <Header />
       <main className="flex-1">
-        <section className="bg-gradient-to-br from-zinc-50 to-white px-4 py-20 dark:from-zinc-950 dark:to-zinc-900">
+        <section className="bg-navy px-4 py-20 text-white">
           <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold text-zinc-900 dark:text-zinc-100">
+            <h1 className="font-heading text-4xl font-bold">
               Blog
             </h1>
-            <p className="mt-4 text-lg text-zinc-500">
+            <p className="mt-4 text-lg text-white/60">
               Artigos, novidades e insights do nosso time.
             </p>
           </div>
@@ -71,13 +71,7 @@ export default async function BlogPage() {
               </p>
             ) : (
               <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                {articles.map((article) => {
-                  const categories =
-                    article.article_categories
-                      ?.map((ac: { categories: { id: string; name: string; slug: string } | null }) => ac.categories)
-                      .filter(Boolean) as { id: string; name: string; slug: string }[] ?? [];
-
-                  return (
+                {articles.map((article) => (
                     <ArticleCard
                       key={article.id}
                       title={article.title}
@@ -86,10 +80,8 @@ export default async function BlogPage() {
                       featuredImage={article.featured_image}
                       authorName={article.author_name}
                       publishedAt={article.published_at}
-                      categories={categories}
                     />
-                  );
-                })}
+                ))}
               </div>
             )}
           </div>

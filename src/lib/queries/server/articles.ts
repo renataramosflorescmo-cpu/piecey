@@ -5,36 +5,40 @@ import type { Database } from "@/types/database";
 type Article = Database["public"]["Tables"]["articles"]["Row"];
 
 export async function listPublishedArticlesServer() {
-  const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("articles")
-    .select(
-      "id, title, slug, excerpt, featured_image, author_name, published_at, article_categories(categories(id, name, slug))"
-    )
-    .eq("status", "published" as const)
-    .order("published_at", { ascending: false });
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("articles")
+      .select("id, title, slug, excerpt, featured_image, author_name, published_at")
+      .eq("status", "published" as const)
+      .order("published_at", { ascending: false });
 
-  if (error) throw error;
-  return data as (Pick<Article, "id" | "title" | "slug" | "excerpt" | "featured_image" | "author_name" | "published_at"> & {
-    article_categories: { categories: { id: string; name: string; slug: string } | null }[];
-  })[];
+    if (error) {
+      console.error("Error fetching articles:", error);
+      return [];
+    }
+    return data as Pick<Article, "id" | "title" | "slug" | "excerpt" | "featured_image" | "author_name" | "published_at">[];
+  } catch (e) {
+    console.error("Error in listPublishedArticlesServer:", e);
+    return [];
+  }
 }
 
 export async function getArticleBySlugServer(slug: string) {
-  const supabase = await createClient();
-  const { data, error } = await supabase
-    .from("articles")
-    .select(
-      "*, article_categories(categories(id, name, slug))"
-    )
-    .eq("slug", slug)
-    .eq("status", "published" as const)
-    .single();
+  try {
+    const supabase = await createClient();
+    const { data, error } = await supabase
+      .from("articles")
+      .select("*")
+      .eq("slug", slug)
+      .eq("status", "published" as const)
+      .single();
 
-  if (error) return null;
-  return data as Article & {
-    article_categories: { categories: { id: string; name: string; slug: string } | null }[];
-  };
+    if (error) return null;
+    return data as Article;
+  } catch {
+    return null;
+  }
 }
 
 export async function listPublishedSlugsServer() {
