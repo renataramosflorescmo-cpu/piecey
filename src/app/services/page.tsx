@@ -10,6 +10,8 @@ import {
   Megaphone,
   Heart,
   BarChart3,
+  HardHat,
+  Users,
   ArrowRight,
   Settings,
   Monitor,
@@ -20,12 +22,26 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "Soluções",
     description:
-      "Conheça os produtos PIECEY: Agenda inteligente, Marketing para captação, Retenção de pacientes e Insights de negócio.",
+      "Conheça os produtos PIECEY: Setup, Agenda inteligente, Marketing, Retenção, Insights e Members.",
     alternates: { canonical: `${SITE_URL}/services` },
   };
 }
 
 const products = [
+  {
+    icon: HardHat,
+    name: "PIECEY Setup",
+    focus: "Estruturação digital",
+    promise: "Sua adequação com as melhores práticas de apresentação",
+    features: [
+      "Criação e otimização de perfis digitais",
+      "Identidade visual profissional",
+      "Configuração de ferramentas e automações",
+      "Adequação às melhores práticas do mercado",
+    ],
+    color: "border-purple/30",
+    iconBg: "bg-purple/10 text-purple",
+  },
   {
     icon: Calendar,
     name: "PIECEY Agenda",
@@ -82,6 +98,20 @@ const products = [
     color: "border-electric/30",
     iconBg: "bg-electric/10 text-electric",
   },
+  {
+    icon: Users,
+    name: "PIECEY Members",
+    focus: "Programa de indicações",
+    promise: "Programas de indicações para ampliação de carteiras",
+    features: [
+      "Sistema de indicações entre pacientes",
+      "Recompensas automáticas por indicação",
+      "Rastreamento de origem de novos clientes",
+      "Ampliação orgânica da carteira",
+    ],
+    color: "border-purple/30",
+    iconBg: "bg-purple/10 text-purple",
+  },
 ];
 
 const methodology = [
@@ -127,11 +157,10 @@ export default async function ServicesPage() {
         <section className="bg-navy px-4 py-20 text-white">
           <div className="mx-auto max-w-3xl text-center">
             <h1 className="font-heading text-4xl font-bold">
-              Nossas Soluções
+              Nossas soluções
             </h1>
             <p className="mt-4 text-lg text-white/60">
-              Quatro peças que se encaixam perfeitamente no seu negócio.
-              Chega de ferramentas fragmentadas.
+              Peças que se encaixam perfeitamente no seu negócio.
             </p>
           </div>
         </section>
@@ -211,7 +240,7 @@ export default async function ServicesPage() {
               A PIECEY cuida do resto. Agende uma demonstração gratuita.
             </p>
             <Link href="/contact" className="mt-8 inline-block">
-              <Button size="lg" className="bg-white text-navy hover:bg-white/90">
+              <Button size="lg" className="!bg-[#00C9A7] text-navy hover:!bg-[#00C9A7]/90">
                 Fale com um especialista
                 <ArrowRight className="h-4 w-4" />
               </Button>
