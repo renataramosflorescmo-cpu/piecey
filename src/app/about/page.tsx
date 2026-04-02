@@ -90,7 +90,7 @@ export default async function AboutPage() {
               </p>
               <p className="mt-3 leading-relaxed text-navy/70">
                 Nossas soluções personalizadas são projetadas para o crescimento
-                sustentável da sua clínica ou consultório. Não usamos jargão de
+                sustentável do seu negócio. Não usamos jargão de
                 marketing, não intimidamos com termos técnicos e sempre colocamos
                 o cliente no centro da conversa.
               </p>

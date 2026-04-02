@@ -135,7 +135,7 @@ export default async function HomePage() {
             <p className="mx-auto mt-6 max-w-2xl text-base text-white/70">
               Foque no que você faz de melhor. A PIECEY cuida do resto.
               Agendamento inteligente, captação de pacientes e crescimento
-              previsível para sua clínica ou consultório.
+              previsível para o seu negócio.
             </p>
             <div className="mt-10 flex items-center justify-center gap-4">
               <Link href="/contact">
@@ -286,7 +286,7 @@ export default async function HomePage() {
                 </h2>
                 <p className="mt-4 text-lg text-white/80">
                   Agende uma demonstração gratuita e descubra como a PIECEY pode
-                  transformar o seu consultório.
+                  transformar o seu negócio.
                 </p>
                 <Link href="/contact" className="mt-8 inline-block">
                   <Button size="lg" className="bg-white text-navy hover:bg-white/90">

@@ -90,7 +90,7 @@ const methodology = [
     step: "01",
     name: "Setup de Estruturação",
     description:
-      "Montamos toda a infraestrutura digital do seu consultório: site, perfis, CRM e automações.",
+      "Montamos toda a infraestrutura digital do seu negócio: site, perfis, CRM e automações.",
   },
   {
     icon: Monitor,
@@ -179,7 +179,7 @@ export default async function ServicesPage() {
                 Nossa Metodologia
               </h2>
               <p className="mt-3 text-navy/60">
-                Três etapas para transformar seu consultório.
+                Três etapas para transformar o seu negócio.
               </p>
             </div>
             <div className="mt-12 grid gap-8 md:grid-cols-3">
