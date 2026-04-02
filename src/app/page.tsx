@@ -25,7 +25,7 @@ import {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "PIECEY | Tecnologia e Marketing para Saúde",
+    title: "PIECEY | Plataforma de Tecnologia e Marketing",
     description:
       "Plataforma de Tecnologia e Marketing para profissionais da saúde. Agendamento inteligente, captação de pacientes e crescimento previsível.",
   };
@@ -123,15 +123,12 @@ export default async function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-br from-electric/10 via-transparent to-purple/10" />
           <div className="relative mx-auto max-w-7xl text-center">
             <p className="mb-4 inline-block rounded-full bg-mint/10 px-4 py-1.5 text-sm font-medium text-mint">
-              Plataforma de Tecnologia e Marketing para Saúde
+              Plataforma de Tecnologia e Marketing
             </p>
             <h1 className="font-heading text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
               Cada Peça no
               <span className="block text-electric"> Lugar Certo.</span>
             </h1>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-purple font-medium">
-              Porque crescer... é moleza.
-            </p>
             <p className="mx-auto mt-6 max-w-2xl text-base text-white/70">
               Foque no que você faz de melhor. A PIECEY cuida do resto.
               Agendamento inteligente, captação de pacientes e crescimento
