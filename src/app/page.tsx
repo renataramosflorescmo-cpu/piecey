@@ -63,6 +63,12 @@ const products = [
     description: "Sua peça de dados que mostra exatamente como crescer.",
     color: "bg-electric/10 text-electric",
   },
+  {
+    icon: Users,
+    name: "PIECEY Members",
+    description: "Programas de indicações para ampliação de carteiras.",
+    color: "bg-purple/10 text-purple",
+  },
 ];
 
 const markets = [
