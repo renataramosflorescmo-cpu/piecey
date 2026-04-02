@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Instagram } from "lucide-react";
 import { NAV_ITEMS } from "@/lib/constants";
 
 export function Footer() {
@@ -49,6 +50,15 @@ export function Footer() {
               <p>contato@piecey.com.br</p>
               <p>www.piecey.com.br</p>
             </div>
+            <a
+              href="https://instagram.com/pieceyoficial"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 inline-flex items-center gap-2 text-sm text-white/50 transition-colors hover:text-mint"
+            >
+              <Instagram className="h-4 w-4" />
+              @pieceyoficial
+            </a>
           </div>
         </div>
 
