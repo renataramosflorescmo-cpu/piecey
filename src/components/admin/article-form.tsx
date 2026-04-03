@@ -8,6 +8,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { RichTextEditor } from "@/components/admin/rich-text-editor";
 import { SeoFields } from "@/components/admin/seo-fields";
 import { MediaPicker } from "@/components/admin/media-picker";
+import { AiAssistant } from "@/components/admin/ai-assistant";
 import { slugify } from "@/lib/utils/slugify";
 import {
   createArticle,
@@ -220,12 +221,19 @@ export function ArticleForm({ article }: ArticleFormProps) {
                 Conteúdo
               </h2>
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-4">
               <RichTextEditor
                 content={content}
                 onChange={(json, html) => {
                   setContent(json);
                   setContentHtml(html);
+                }}
+              />
+              <AiAssistant
+                currentContent={contentHtml}
+                onApply={(html) => {
+                  setContentHtml(html);
+                  setContent({ type: "doc", content: [{ type: "paragraph", content: [{ type: "text", text: "Conteúdo atualizado pela IA. Recarregue o editor." }] }] });
                 }}
               />
             </CardContent>

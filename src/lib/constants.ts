@@ -16,6 +16,7 @@ export const ADMIN_NAV_ITEMS = [
   { label: "Mídia", href: "/admin/media", icon: "Image" },
   { label: "Categorias", href: "/admin/categories", icon: "Tags" },
   { label: "Configurações", href: "/admin/settings", icon: "Settings" },
+  { label: "IA Conteúdo", href: "/admin/ai", icon: "Sparkles" },
 ] as const;
 
 export const DEFAULT_SEO = {

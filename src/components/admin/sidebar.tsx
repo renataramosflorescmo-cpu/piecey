@@ -9,6 +9,7 @@ import {
   ImageIcon,
   Tags,
   Settings,
+  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils/cn";
 import { ADMIN_NAV_ITEMS } from "@/lib/constants";
@@ -20,6 +21,7 @@ const iconMap: Record<string, React.ElementType> = {
   Image: ImageIcon,
   Tags,
   Settings,
+  Sparkles,
 };
 
 export function AdminSidebar() {
