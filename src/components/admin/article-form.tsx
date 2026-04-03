@@ -45,6 +45,14 @@ export function ArticleForm({ article }: ArticleFormProps) {
   );
   const [status, setStatus] = useState(article?.status ?? "draft");
   const [authorName, setAuthorName] = useState(article?.author_name ?? "");
+  const [publishDate, setPublishDate] = useState(
+    article?.published_at
+      ? new Date(article.published_at).toISOString().slice(0, 16)
+      : new Date().toISOString().slice(0, 16)
+  );
+  const [isFeatured, setIsFeatured] = useState(
+    article?.seo_keywords?.includes("destaque") ?? false
+  );
 
   // SEO
   const [seoTitle, setSeoTitle] = useState(article?.seo_title ?? "");
@@ -92,10 +100,9 @@ export function ArticleForm({ article }: ArticleFormProps) {
       author_name: authorName,
       author_id: user?.id ?? null,
       status: (publishNow ? "published" : status) as "draft" | "published" | "archived",
-      published_at:
-        publishNow && !article?.published_at
-          ? new Date().toISOString()
-          : article?.published_at ?? null,
+      published_at: publishNow
+        ? new Date(publishDate).toISOString()
+        : article?.published_at ?? null,
       seo_title: seoTitle || null,
       seo_description: seoDescription || null,
       seo_keywords: seoKeywords
@@ -292,6 +299,89 @@ export function ArticleForm({ article }: ArticleFormProps) {
           <Card>
             <CardHeader>
               <h2 className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+                Data de Publicação
+              </h2>
+            </CardHeader>
+            <CardContent>
+              <input
+                type="datetime-local"
+                value={publishDate}
+                onChange={(e) => setPublishDate(e.target.value)}
+                className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              />
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <h2 className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+                Destaque
+              </h2>
+            </CardHeader>
+            <CardContent>
+              <label className="flex items-center gap-3 cursor-pointer">
+                <div
+                  className={`relative h-6 w-11 rounded-full transition-colors ${
+                    isFeatured ? "bg-electric" : "bg-zinc-300"
+                  }`}
+                  onClick={() => setIsFeatured(!isFeatured)}
+                >
+                  <div
+                    className={`absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform ${
+                      isFeatured ? "translate-x-5" : "translate-x-0.5"
+                    }`}
+                  />
+                </div>
+                <span className="text-sm text-zinc-700 dark:text-zinc-300">
+                  {isFeatured ? "Artigo em destaque" : "Artigo normal"}
+                </span>
+              </label>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <h2 className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
+                Categoria (Solução)
+              </h2>
+            </CardHeader>
+            <CardContent className="space-y-3">
+              <select
+                value={selectedCategories[0] ?? ""}
+                onChange={(e) => {
+                  if (e.target.value) {
+                    setSelectedCategories([e.target.value]);
+                  } else {
+                    setSelectedCategories([]);
+                  }
+                }}
+                className="w-full rounded-lg border border-zinc-300 bg-white px-3 py-2 text-sm dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-100"
+              >
+                <option value="">Selecione uma categoria</option>
+                <optgroup label="Soluções PIECEY">
+                  <option value="__setup">PIECEY Setup</option>
+                  <option value="__agenda">PIECEY Agenda</option>
+                  <option value="__marketing">PIECEY Marketing</option>
+                  <option value="__retencao">PIECEY Retenção</option>
+                  <option value="__insights">PIECEY Insights</option>
+                  <option value="__members">PIECEY Members</option>
+                </optgroup>
+                {categories.length > 0 && (
+                  <optgroup label="Categorias personalizadas">
+                    {categories.map((cat) => (
+                      <option key={cat.id} value={cat.id}>
+                        {cat.name}
+                      </option>
+                    ))}
+                  </optgroup>
+                )}
+              </select>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardHeader>
+              <h2 className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
                 Autor
               </h2>
             </CardHeader>
@@ -317,38 +407,6 @@ export function ArticleForm({ article }: ArticleFormProps) {
                 onChange={setFeaturedImage}
                 label=""
               />
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader>
-              <h2 className="text-sm font-semibold text-zinc-700 dark:text-zinc-300">
-                Categorias
-              </h2>
-            </CardHeader>
-            <CardContent>
-              {categories.length === 0 ? (
-                <p className="text-sm text-zinc-400">Nenhuma categoria criada.</p>
-              ) : (
-                <div className="space-y-2">
-                  {categories.map((cat) => (
-                    <label
-                      key={cat.id}
-                      className="flex items-center gap-2 text-sm"
-                    >
-                      <input
-                        type="checkbox"
-                        checked={selectedCategories.includes(cat.id)}
-                        onChange={() => toggleCategory(cat.id)}
-                        className="rounded border-zinc-300"
-                      />
-                      <span className="text-zinc-700 dark:text-zinc-300">
-                        {cat.name}
-                      </span>
-                    </label>
-                  ))}
-                </div>
-              )}
             </CardContent>
           </Card>
         </div>
